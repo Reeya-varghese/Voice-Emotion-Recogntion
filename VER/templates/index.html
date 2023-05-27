@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Voice emotion recognition</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style/navigation bar.css')}}">
+  </head>
+  <div class="topnav">
+    <a class="active" href="#home">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+     <a href="#help" class="split">Help</a>
+  </div>
+
+  <body>
+    <h1>Voice Emotion Recognition Application</h1>
+    
+    <p>Upload the recorded audio and click on the " Predict " button.</p>
+    
+    <div>
+      <form action ="{{ url_for('predict')}}" method="post"enctype ="multipart/form-data">
+        
+        <input id="file-upload" class="hidden" type="file" accept="audio/*" name="audio_data" />
+        <br>
+      <button id ='predict'>Predict</button>
+      </form>
+    </div><br>
+    {{prediction_text}}
+  </body>
+</html>
